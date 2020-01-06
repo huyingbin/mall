@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    .wraper {
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        padding: 50px;
+    }
+    
+    .inner {
+        height: 50px;
+        width: 50px;
+        background-color: blue;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <!-- 冒泡 -->
+        <div class="wraper" @click="clickWraper">
+            <div class="inner" @click.stop="clickInner">
+
+            </div>
+        </div>
+        <!-- 键修饰符，键别名 -->
+        <input type="text" @keyup.enter="onEnter">
+        <!-- 键修饰符，键代码-->
+        <input type="text" @keyup.13="onEnter">
+
+        <button @click.once="doOnce">once</button>
+
+
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const vue = new Vue({
+        el: "#app",
+        methods: {
+            clickWraper() {
+                console.log("我是wraper，我被点击了")
+            },
+            clickInner() {
+                console.log("我是inner，我也被点击了")
+            },
+
+            onEnter() {
+                console.log("键盘输入弹起");
+            },
+
+            doOnce() {
+                console.log("弹出once次");
+            }
+        },
+
+    })
+</script>
+
+</html>

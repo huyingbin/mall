@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <tab-bar>
+      <tab-bar-item toRouterPath = '/home' acriveColor='blue'>
+        <img slot = 'item-icon' src="~assets/image/tabbar/home.svg" alt="首页"/>
+        <img slot = 'item-icon-active' src="~assets/image/tabbar/home_active.svg" alt="首页" />
+        <div slot = 'item-title' class="title">首页</div>  
+      </tab-bar-item>
+      <tab-bar-item toRouterPath = '/category'>
+        <img slot = 'item-icon' src="~assets/image/tabbar/category.svg" alt="分类"/>
+        <img slot = 'item-icon-active' src="~assets/image/tabbar/category_active.svg" alt="分类" />
+        <div slot = 'item-title' class="title">分类</div>  
+      </tab-bar-item>
+      <tab-bar-item toRouterPath = '/shopCart'> 
+        <img slot = 'item-icon' src="~assets/image/tabbar/shopcart.svg" alt="购物车"/>
+        <img slot = 'item-icon-active' src="~assets/image/tabbar/shopcart_active.svg" alt="购物车" />
+        <div slot = 'item-title' class="title">购物车</div>  
+      </tab-bar-item>
+      <tab-bar-item toRouterPath = '/profile'>
+        <img slot = 'item-icon' src="~assets/image/tabbar/profile.svg" alt="我的"/>
+        <img slot = 'item-icon-active' src="~assets/image/tabbar/profile_active.svg" alt="我的" />
+        <div slot = 'item-title' class="title">我的</div>  
+      </tab-bar-item>
+    </tab-bar>
+   
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import tabBar from 'components/common/tabbar/TabBar.vue'
+import tabBarItem from 'components/common/tabbar/TabBarItem.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    tabBar,
+    tabBarItem
+ 
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
+
+@import "assets/css/base.css"
 </style>
